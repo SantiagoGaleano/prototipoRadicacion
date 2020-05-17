@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Prototipo Oficina virtual de radicación</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<style>
+    body{
+        padding: 30px;
+    }
+</style>
+    </head>
+    <body>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="index.html">Oficina de radicación <span class="sr-only">(current)</span></a>
+                </li>
+                
+                
+                
+              </ul>
+              
+            </div>
+          </nav>
+
+          <br>
+          <br>
+          
+
+        <h3>Prototipo Oficina virtual de radicación</h3>
+        <br><br>
+
+        <form action="">
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Tema</label>
+                <select style="margin-left: 14px;" id="area" name="area"  onchange="selectArea()" class="custom-select col-sm-9" id="interesPrestamo" required>
+                    <option value="Oficina de sistemas" >Convenios</option>
+                    <option value="Secretaria General">Convenio 1 </option>
+                    <option value="Formacion profesional">  Convenio 2 </option>
+                    <option value="Empleo y trabajo"> Convenio 3 </option>
+
+                    
+                </select>
+                <br>
+                <br>
+                <br>
+                
+                
+            </div>
+
+            <hr>
+
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Regional</label>
+                <select style="margin-left: 14px;" id="area" name="area"  onchange="selectArea()" class="custom-select col-sm-9" id="interesPrestamo" required>
+                    <option value="" >Bogota</option>
+                    <option value=""> Medellin </option>
+                    <option value="">  Cali </option>
+                    <option value=""> Barranquilla </option>
+
+                    
+                </select>
+                <br>
+                <br>
+                <br>
+                
+                
+            </div>
+            <hr>
+
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Tu nombre</label>
+                <input type="text" id="nombre" class="nombre" >
+            </div>
+
+            <hr>
+
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Correo Electronico    </label>
+                <input type="text" id="email" class="email" required >
+            </div>
+
+            <hr>
+
+            <div class="form-group">
+                
+                    <label for="exampleInputEmail1">Tipo Identificación </label>
+                    <br>
+                    <select id="area" name="area"  onchange="selectArea()"  id="interesPrestamo" required>
+                        <option value="" >Bogota</option>
+                        <option value=""> Medellin </option>
+                        <option value="">  Cali </option>
+                        <option value=""> Barranquilla </option>
+    
+                        
+                    </select>
+
+            </div>
+
+            <hr>
+
+
+            <div class="form-group">
+                
+                <label for="exampleInputEmail1">Número de identificación </label>
+                <br>
+                <input type="text" id="aa" class="aa" >
+            </div>
+
+            <hr>
+
+
+            <div class="form-group">
+                
+                <label for="exampleInputEmail1" >Mensaje </label>
+                <br>
+                <input required type="text" id="aa" class="aa"  required >
+            </div>
+
+            <hr>
+
+                
+        </div>
+
+
+            
+            <button type="button" onclick="enviar()" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Enviar</button>
+        </form>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div>
+            
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">¡ Radicación Exitosa !</h5>
+
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <p>Señor(a) <span id="nombreR"></span>, recuerda que puedes hacer seguimiento a tu comunicado con el número de radicado  <span id="codigoR"></span>, se le ha enviado toda la información al correo  <span id="correoR"></span> </p>
+                    
+                    <br>
+                    <span id="txtComunicado"></span>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <script>
+            var coordinador = document.getElementById("coordinador");
+            var comunicado = document.getElementById("aa");
+            var txtComunicado = document.getElementById("txtComunicado");
+            var nombre = document.getElementById("nombre");
+            var cod = document.getElementById("codigoR");
+            var correo = document.getElementById("email");
+            var correoRa = document.getElementById("correoR");
+            function selectArea()
+            {
+                var area = document.getElementById("area").value;
+                console.log('el area es', area);
+                return area;
+
+                
+            }
+
+            function enviar() {
+                console.log(comunicado.value);
+                /**
+                if(selectArea()=='Oficina de sistemas'){
+                    coordinador.innerHTML = "Coordinador encargado: Hernan Rios";
+                    txtComunicado.innerHTML = "Comunicado " +  comunicado.value;
+                    
+
+                } else if(selectArea()=="Secretaria general"){
+                    coordinador.innerHTML = "Coordinador encargado: Veronica Ponce Vallejo";
+                    txtComunicado.innerHTML = "Comunicado " +  comunicado.value;
+
+
+                } else if(selectArea()=="Formacion profesional"){
+                    coordinador.innerHTML = "Coordinador encargado: Farid de Jesús Figueroa";
+                    txtComunicado.innerHTML = "Comunicado " +  comunicado.value;
+
+
+                }else if(selectArea()=="Empleo y trabajo"){
+                    coordinador.innerHTML = "Coordinador encargado: Hernan Fuentes";
+                    txtComunicado.innerHTML = "Comunicado " +  comunicado.value;
+
+
+                }
+                **/
+
+                nombreR.innerHTML = nombre.value;
+                console.log(nombre.value)
+        
+                cod.innerHTML =  getRandomArbitrary();
+                correoRa.innerHTML = correo.value;
+            }
+
+            function getRandomArbitrary(min, max) {
+               return Math.floor(Math.random()* 70000);
+             
+        }
+           
+
+        </script>
+    
+    </body>
+</html>
