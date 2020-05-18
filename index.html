@@ -44,32 +44,74 @@
         <br><br>
 
         <form action="">
+            <h2>Información del destinatario</h2>
             <div class="form-group row">
-                <label for="colFormLabel" class="col-sm-2 col-form-label">Tema</label>
-                <select style="margin-left: 14px;" id="area" name="area"  onchange="selectArea()" class="custom-select col-sm-9" id="interesPrestamo" required>
-                    <option value="Oficina de sistemas" >Convenios</option>
-                    <option value="Secretaria General">Convenio 1 </option>
-                    <option value="Formacion profesional">  Convenio 2 </option>
-                    <option value="Empleo y trabajo"> Convenio 3 </option>
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Asunto</label>
+                <select style="margin-left: 14px;" id="asunto" name="asunto"  onchange="selectArea()" class="custom-select col-sm-4" id="interesPrestamo" required>
+                    <option codigo="03" value="03">Inventarios</option>
+                    <option codigo="12" value="12">Convenios</option>
+                    <option codigo="46" value="46">Vivienda</option>
 
                     
                 </select>
+
+              
+
+
+               
                 <br>
                 <br>
                 <br>
+
                 
                 
+                
+            </div>
+
+            <div class="form-group row">
+
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Dependencia</label>
+
+
+                <select style="margin-left: 14px;" id="dependencia" name="dependencia" onchange="valor()" class="custom-select col-sm-4">
+                    <option codigo="12" value="1">Secretaria General</option>
+                    <option codigo="46" value="2">Grupo de vivienda</option>
+                    <option codigo="12" value="4">Oficina juridica</option>
+                    <option codigo="03" value="5">Grupo de inventarios</option>
+                </select>
+    
+
+            </div>
+
+
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Código de dependencia</label>
+                <input style="margin-left: 14px;" size="60"  type="text" id="codigoDependencia" class="codigoDependencia" readonly  >
+
+            </div>
+           
+
+
+            
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label" >Destinatario</label>
+                <input style="margin-left: 14px;" size="60"  type="text" id="destinatario" class="destinatario" readonly  >
+            </div>
+
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Correo</label>
+                <input style="margin-left: 14px;" size="60"  type="text" id="correoDestinatario" class="correoDestinatario" readonly >
             </div>
 
             <hr>
 
             <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-2 col-form-label">Regional</label>
-                <select style="margin-left: 14px;" id="area" name="area"  onchange="selectArea()" class="custom-select col-sm-9" id="interesPrestamo" required>
-                    <option value="" >Bogota</option>
-                    <option value=""> Medellin </option>
-                    <option value="">  Cali </option>
-                    <option value=""> Barranquilla </option>
+                <select style="margin-left: 14px;" id="regional" name="regional"  onchange="municipios()" class="custom-select col-sm-9"  >
+                    <option value="1" >Dirección General</option>
+                    <option value="2"> Antioquia </option>
+                    <option value="3">  Valle </option>
+                    <option value="4"> Atlantico </option>
 
                     
                 </select>
@@ -79,18 +121,38 @@
                 
                 
             </div>
-            <hr>
 
             <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label" >Código Regional</label>
+                <input style="margin-left: 14px;"  type="text" id="codigoMunicipio" class="codigoMunicipio" readonly  >
+            </div>
+            <hr>
+            <h2>Información del Remitente</h2>
+            <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-2 col-form-label">Nombre</label>
-                <input type="text" id="nombre" class="nombre" >
+                <input type="text" size="60" id="nombre" class="nombre" >
+            </div>
+
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Empresa a la que pertenece</label>
+                <input type="text" size="60" id="empresa" class="empresa" >
+            </div>
+
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Cargo</label>
+                <input type="text" size="60" id="cargo" class="cargo" >
             </div>
 
             <hr>
 
             <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-2 col-form-label">Correo Electronico    </label>
-                <input type="text" id="email" class="email" required >
+                <input type="text" size="60" id="email" class="email" required >
+            </div>
+
+            <div class="form-group row">
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Dirección Fisica    </label>
+                <input type="text" size="60" id="dirección" class="dirección" required >
             </div>
 
             <hr>
@@ -115,7 +177,7 @@
                 
                 <label for="exampleInputEmail1">Número de identificación </label>
                 <br>
-                <input type="text" id="aa" class="aa" >
+                <input type="text" size="60" id="aa" class="aa" >
             </div>
 
             <hr>
@@ -125,13 +187,16 @@
                 
                 <label for="exampleInputEmail1" >Mensaje </label>
                 <br>
-                <input required type="text" id="aa" class="aa"  required >
+                <input required type="text"  size="60" id="aa" class="aa"  required >
             </div>
 
             <hr>
 
                 
         </div>
+
+        <label><input type="checkbox" id="cbox1" value="first_checkbox"> Acepto recibir la respuesta via electronica</label><br>
+
 
 
             
@@ -172,6 +237,100 @@
           </div>
 
         <script>
+
+        var id1 = document.getElementById("asunto");
+        var id2 = document.getElementById("dependencia");
+
+        
+        
+        // Añade un evento change al elemento id1, asociado a la función cambiar()
+        if (id1.addEventListener) {     // Para la mayoría de los navegadores, excepto IE 8 y anteriores
+            id1.addEventListener("change", cambiar);
+        } else if (id1.attachEvent) {   // Para IE 8 y anteriores
+            id1.attachEvent("change", cambiar); // attachEvent() es el método equivalente a addEventListener()
+        }
+
+        // Definición de la función cambiar()
+        function cambiar() {
+            for (var i = 0; i < id2.options.length; i++)
+            
+            // -- Inicio del comentario -- 
+            // Muestra solamente los id2 que sean iguales a los id1 seleccionados, según la propiedad display
+            if(id2.options[i].getAttribute("codigo") == id1.options[id1.selectedIndex].getAttribute("codigo")){
+                id2.options[i].style.display = "block";
+            }else{
+                id2.options[i].style.display = "none";
+            }
+            // -- Fin del comentario --
+            
+            console.log(id2.value);
+            id2.value = "";
+        }
+
+        function municipios(){
+            var areaX = document.getElementById("regional").value;
+            console.log(area);
+            var municipioR = document.getElementById("codigoMunicipio");
+            console.log("el numero de area es ", areaX);
+
+            if (areaX === "1") {
+                municipioR.value = "1";
+            } else if(areaX === "2") {
+                municipioR.value = "5";
+
+            } else if (areaX === "3"){
+                municipioR.value = "76";
+            } else if (areaX === "4"){
+                municipioR.value = "8";
+            } 
+
+
+
+        }
+        
+        function valor(){
+            var valorX = document.getElementById("dependencia").value;
+            var inputCodigo = document.getElementById("codigoDependencia");
+            var desti = document.getElementById("destinatario");
+            var email = document.getElementById("correoDestinatario");
+            console.log(valorX)
+
+            if(valorX === "1") {
+                inputCodigo.value = "1-2020";
+                desti.value = "Veronica Ponce Vallejo";
+                email.value = "secretariageneral@sena.edu.co";
+
+
+
+            } else if(valorX === "5"){
+
+                inputCodigo.value = "1-4047";
+                desti.value = "Flavio Ortiz";
+                email.value = "fortiz@sena.edu.co";
+                
+            } else if(valorX === "4"){
+
+            inputCodigo.value = "1-0010";
+            desti.value = "Oscar Castaño";
+            email.value = "ocastano@sena.edu.co";
+
+            }  else if(valorX === "2"){
+
+            inputCodigo.value = "1-2026";
+            desti.value = "Victoria Consuelo";
+            email.value = "vramirez@sena.edu.co";
+
+            }   
+             else {
+                inputCodigo.value = "";
+                desti.value = "";
+                email.value = "";
+
+            }
+        }
+
+        // Llamada a la función cambiar()
+        cambiar();
             var coordinador = document.getElementById("coordinador");
             var comunicado = document.getElementById("aa");
             var txtComunicado = document.getElementById("txtComunicado");
@@ -179,14 +338,7 @@
             var cod = document.getElementById("codigoR");
             var correo = document.getElementById("email");
             var correoRa = document.getElementById("correoR");
-            function selectArea()
-            {
-                var area = document.getElementById("area").value;
-                console.log('el area es', area);
-                return area;
-
-                
-            }
+            
 
             function enviar() {
                 console.log(comunicado.value);
