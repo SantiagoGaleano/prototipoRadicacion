@@ -15,10 +15,14 @@
         padding: 30px;
     }
 </style>
+
+
     </head>
     <body>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="#"><img width="80px" height="80px" src="logo.png" alt=""></a>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -43,12 +47,12 @@
         <h3>Prototipo Oficina virtual de radicación</h3>
         <br><br>
 
-        <form action="">
+        <form action="" id="formulario" class="formulario">
             <h2>Información del destinatario</h2>
 
             <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-2 col-form-label">Regional</label>
-                <select style="margin-left: 14px;" id="regional" name="regional"  onchange="municipios()" class="custom-select col-sm-9"  >
+                <select style="margin-left: 14px;" id="regional" name="regional"  onchange="municipios()" class="custom-select col-sm-4"  >
                     <option value="1" >Dirección General</option>
                     <option value="2"> Antioquia </option>
                     <option value="3">  Valle </option>
@@ -56,6 +60,8 @@
 
                     
                 </select>
+                <p style="margin-left: 8px;"> (*)</p>
+
                 <br>
                 <br>
                 <br>
@@ -76,18 +82,12 @@
 
                     
                 </select>
+                <p style="margin-left: 8px;"> (*)</p>
 
-              
-
-
-               
                 <br>
                 <br>
                 <br>
 
-                
-                
-                
             </div>
 
             <div class="form-group row">
@@ -101,6 +101,9 @@
                     <option codigo="12" value="4">Oficina juridica</option>
                     <option codigo="03" value="5">Grupo de inventarios</option>
                 </select>
+                <p style="margin-left: 8px;"> (*)</p>
+                
+
     
 
             </div>
@@ -132,7 +135,8 @@
             <h2>Información del Remitente</h2>
             <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-2 col-form-label">Nombre</label>
-                <input type="text" size="60" id="nombre" class="nombre" >
+                <input type="text" size="60" id="nombre" class="nombre" required >
+                <p style="margin-left: 8px;"> (*)</p>
             </div>
 
             <div class="form-group row">
@@ -150,12 +154,35 @@
             <div class="form-group row">
                 <label for="colFormLabel" class="col-sm-2 col-form-label">Correo Electronico    </label>
                 <input type="text" size="60" id="email" class="email" required >
-            </div>
+               
 
-            <div class="form-group row">
+            </div>
+            <label><input type="checkbox" name="check"  id="Check1" value="first_checkbox" onclick="onlyOne(this)"> VÍA CORREO OBTENDRA UNA RESPUESTA MÁS RÁPIDA y al poner su dirección de correo electrónico usted autoriza el envío de la respuesta por este medio</label><br>
+            <label><input type="checkbox" name="check" id="autorizar" value="autorizar" onclick=" onlyOne(this) "> NO autorizo el envío electrónico de la respuesta o No tengo un correo electrónico</label><br>
+
+
+
+
+            <div class="form-group " id="direccion" class="direccion" style="display: none;">
                 <label for="colFormLabel" class="col-sm-2 col-form-label">Dirección Fisica    </label>
                 <input type="text" size="60" id="dirección" class="dirección" required >
+                 <br>
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Pais    </label>
+                <input type="text" size="60" id="dirección" class="dirección" required >
+                <br>
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Ciudad   </label>
+                <input type="text" size="60" id="dirección" class="dirección" required >
+                <br>
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Departamento    </label>
+                <input type="text" size="60" id="dirección" class="dirección" required >
+                <br>
+                <label for="colFormLabel" class="col-sm-2 col-form-label">Apto o piso    </label>
+                <input type="text" size="60" id="dirección" class="dirección" required >
+
+                
+
             </div>
+            
 
             <hr>
 
@@ -208,7 +235,7 @@
 
 
             
-            <button type="button" onclick="enviar()" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Enviar</button>
+            <button type="sub" onclick="enviar()" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Enviar</button>
         </form>
 
 
@@ -261,6 +288,24 @@
         }
 
         // Definición de la función cambiar()
+
+        function onlyOne(checkbox) {
+            var checkboxAuto = document.getElementById("autorizar");
+            var autorizar = document.getElementById("direccion");
+            var checkboxes = document.getElementsByName('check')
+            checkboxes.forEach((item) => {
+                if (item !== checkbox) item.checked = false
+                console.log(checkbox.id);
+                
+            })
+            if(checkbox.id === "autorizar"){
+                    autorizar.style.display = "block";
+
+                } else {
+                    autorizar.style.display = "none";
+                }
+        }
+        
         function cambiar() {
             for (var i = 0; i < id2.options.length; i++)
             
@@ -351,30 +396,11 @@
             
 
             function enviar() {
+
+
                 console.log(comunicado.value);
-                /**
-                if(selectArea()=='Oficina de sistemas'){
-                    coordinador.innerHTML = "Coordinador encargado: Hernan Rios";
-                    txtComunicado.innerHTML = "Comunicado " +  comunicado.value;
-                    
+               nombre.required = true;
 
-                } else if(selectArea()=="Secretaria general"){
-                    coordinador.innerHTML = "Coordinador encargado: Veronica Ponce Vallejo";
-                    txtComunicado.innerHTML = "Comunicado " +  comunicado.value;
-
-
-                } else if(selectArea()=="Formacion profesional"){
-                    coordinador.innerHTML = "Coordinador encargado: Farid de Jesús Figueroa";
-                    txtComunicado.innerHTML = "Comunicado " +  comunicado.value;
-
-
-                }else if(selectArea()=="Empleo y trabajo"){
-                    coordinador.innerHTML = "Coordinador encargado: Hernan Fuentes";
-                    txtComunicado.innerHTML = "Comunicado " +  comunicado.value;
-
-
-                }
-                **/
 
                 nombreR.innerHTML = nombre.value;
                 console.log(nombre.value)
@@ -390,6 +416,24 @@
            
 
         </script>
+
+        
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+
+    <script>
+
+    $( "#formulario" ).validate({
+      rules: {
+        nombre: {
+          required: true
+        }
+      }
+    });
+    
+    
+    </script>
     
     </body>
 </html>
